@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import {
     Popover,
     PopoverTrigger,
@@ -117,14 +118,21 @@ export function DataTableFilter<TValue>({
         <Popover open={open} onOpenChange={setOpen}>
             <PopoverTrigger asChild>
                 <Button
-                    variant={active ? "default" : "outline"}
+                    variant="outline"
                     size="icon"
-                    className="relative h-7 w-7"
+                    className={cn(
+                        "relative h-8 w-8 rounded-md border bg-slate-900/80",
+                        "border-slate-600/70 text-sky-200",
+                        "hover:bg-cyan-500/15 hover:border-cyan-300/80",
+                        "transition-all duration-150",
+                        active &&
+                        "border-cyan-300 bg-cyan-500/15 shadow-[0_0_18px_rgba(34,211,238,0.65)]"
+                    )}
                     aria-label={`Filter ${label}`}
                 >
                     <FilterIcon className="h-4 w-4" />
                     {active && (
-                        <span className="absolute -top-1 -right-1 h-2 w-2 rounded-full bg-emerald-500" />
+                        <span className="absolute -top-1 -right-1 h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(74,222,128,0.95)]" />
                     )}
                 </Button>
             </PopoverTrigger>
