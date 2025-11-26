@@ -11,7 +11,7 @@ dayjs.extend(timezone);
  * @param tz  es. "Europe/Rome"; se omesso usa il fuso del browser
  * @param stepMs intervallo di aggiornamento (default 30s)
  */
-export function useClock(tz?: string, stepMs = 30_000): Dayjs {
+export function useClock(tz?: string, stepMs = 1_000): Dayjs {
   const getNow = () => (tz ? dayjs().tz(tz) : dayjs());
 
   const [now, setNow] = React.useState<Dayjs>(() => getNow());

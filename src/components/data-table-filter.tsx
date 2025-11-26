@@ -140,12 +140,12 @@ export function DataTableFilter<TValue>({
                 align="start"
                 sideOffset={8}
                 className="z-50 w-80 p-0 rounded-xl border border-cyan-500/40
-                    bg-slate-950/95 shadow-[0_0_35px_rgba(8,47,73,0.85)]
-                    backdrop-blur-xl"
+             bg-slate-950/65 shadow-[0_0_35px_rgba(8,47,73,0.7)]
+             backdrop-blur-xl"
             >
                 <div className="flex items-center justify-between
                 rounded-t-xl border-b border-cyan-500/40
-                bg-slate-900/80 px-4 py-2.5
+                bg-slate-900/60 px-4 py-2.5
                 text-[11px] font-semibold uppercase tracking-[0.18em] text-sky-200">
                     <span>Filter: {label}</span>
                     <span className="text-[10px] font-mono text-slate-400">STK·HUD</span>
@@ -165,11 +165,11 @@ export function DataTableFilter<TValue>({
                  text-xs placeholder:text-slate-500 mb-3 px-3 py-1 text-xs"
                         />
                     </div>
-                    <CommandList className="max-h-52 bg-slate-950/80">
+                    <CommandList className="max-h-52 bg-slate-950/40">
                         <CommandEmpty className="px-4 py-2 text-xs text-slate-500">
                             No values found.
                         </CommandEmpty>
-                        <ScrollArea className="max-h-52">
+                        <ScrollArea className="max-h-52 bg-transparent">
                             {filteredOptions.map((opt) => {
                                 const lab = toLabel(opt);
                                 const checked = tempSelected.some(
@@ -197,7 +197,7 @@ export function DataTableFilter<TValue>({
                 </Command>
 
                 {/* FOOTER Sort + pulsanti */}
-                <div className="border-t border-slate-800/90 bg-slate-950/90 px-4 py-3 space-y-2 rounded-b-xl">
+                <div className="border-t border-slate-800/70 bg-slate-950/55 px-4 py-3 space-y-2 rounded-b-xl">
                     <div className="flex items-center justify-between text-[11px]">
                         <span className="text-slate-300">Sort</span>
                         <div className="flex gap-1">
