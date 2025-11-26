@@ -1,6 +1,14 @@
 import { DemoTable } from "./components/demo-table";
+import { useClock } from "./hooks/use-clock";
 
 function App() {
+  const now = useClock(); // oppure useClock("Europe/Rome")
+
+  const day = now.format("ddd").toUpperCase();   // MON, TUE, ...
+  const time = now.format("HH:mm");              // 09:27
+  const date = now.format("DD/MM");              // 25/11
+  const tz   = now.format("z");                  // CET, CEST, etc.
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-sky-950 text-sky-50 flex items-center justify-center p-6">
       <div className="w-full max-w-6xl rounded-2xl border border-cyan-500/35 bg-slate-950/70 shadow-[0_0_60px_rgba(8,47,73,0.9)] backdrop-blur-xl p-5 space-y-4">
@@ -22,8 +30,14 @@ function App() {
                 Market Monitor Console
               </h1>
             </div>
+
             <div className="hidden md:flex gap-2 text-[10px] font-mono text-slate-400">
-              <span>MON · 02:09</span>
+              <span>{day}</span>
+              <span>{date}</span>
+              <span className="text-slate-600">|</span>
+              <span>{time}</span>
+              <span className="text-slate-600">|</span>
+              <span>{tz}</span>
               <span className="text-slate-600">|</span>
               <span>NASDAQ · LIVE FEED</span>
             </div>
