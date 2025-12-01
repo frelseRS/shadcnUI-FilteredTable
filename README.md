@@ -1,73 +1,103 @@
-# React + TypeScript + Vite
+# Table filters
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small experimental web app built with **Vite + React + TypeScript + Tailwind CSS + shadcn/ui** that showcases:
 
-Currently, two official plugins are available:
+- an **Excel-style table filters** (search, multi-select, sort per column),
+- a **live HUD clock** with timezone-aware date/time.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+It’s intended as a playground for reusable filtering components and UI styling, not as a full data-grid library.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Screenshot
 
-## Expanding the ESLint configuration
+> Replace the path below with your own image (e.g. `./docs/stark-dashboard.png`).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+![Stark UI Filtered Table Screenshot](/src/assets/screenshot.png)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Features
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- 🔍 **Per-column filters**
+  - Search within column values.
+  - Multi-select via checkboxes.
+  - “Clear filter” & “Apply filter” actions.
+- ↕️ **Sorting**
+  - Sort toggle per column (ascending / descending / none).
+  - Numeric sort for the `Amount` column, string sort for others.
+- 🧊 **Reusable `<DataTableFilter />` component**
+  - Built on top of shadcn/ui (`Popover`, `Command`, `Checkbox`, `ScrollArea`, `Button`).
+  - Configurable label, options, sort labels and value-to-label mapping.
+- 💹 **Market dashboard look**
+  - Stark Industries (SIA) header line.
+  - Status badges for each row (`OPEN`, `CLOSED`, `PENDING`).
+  - Glassy, cyan-accented dark theme.
+- ⏱ **Live HUD clock**
+  - Time and date in the user’s timezone.
+  - Seconds included to reinforce the “live feed” feeling.
+
+---
+
+## Tech Stack
+
+- **Build tool:** Vite (React + TypeScript template)
+- **UI framework:** React 18
+- **Styling:** Tailwind CSS
+- **Component primitives:** shadcn/ui
+- **Language:** TypeScript
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (LTS version recommended)
+- npm (or another compatible package manager)
+
+### Installation
+
+```bash
+# clone the repository
+git clone https://github.com/frelseRS/shadcnUI-FilteredTable.git
+cd shadcnUI-FilteredTable.git
+
+# install dependencies
+npm install
+
+# run
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Customization Ideas
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Some directions explorable from here:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- More column types
+
+- Date columns with “Newest → Oldest / Oldest → Newest” labels.
+
+- Boolean columns with quick toggles.
+
+- Remote data
+
+- Plug the table into an API and let filters drive query parameters.
+
+- Keyboard navigation
+
+- Add shortcuts to open/close filters and move between rows.
+
+
+## License
+
+MIT License
+
+Copyright (c) 2025 sAlvo
+...
+
+Credits
+
+- UI components based on shadcn/ui.
+
+- Visual inspiration taken from the fictional Stark Industries dashboards.

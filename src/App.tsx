@@ -7,7 +7,7 @@ function App() {
   const day = now.format("ddd").toUpperCase();   // MON
   const time = now.format("HH:mm:ss"); // 09:27:15
   const date = now.format("DD/MM");              // 25/11
-  const tz = now.format("z");                  // CET
+  const tz = now.format("CET");                  // CET
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-sky-950 text-sky-50 flex items-center justify-center p-6">
