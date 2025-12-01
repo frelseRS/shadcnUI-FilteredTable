@@ -11,8 +11,6 @@ It’s intended as a playground for reusable filtering components and UI styling
 
 ## Screenshot
 
-> Replace the path below with your own image (e.g. `./docs/stark-dashboard.png`).
-
 ![Stark UI Filtered Table Screenshot](/src/assets/screenshot.png)
 
 ---
